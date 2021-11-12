@@ -3,8 +3,8 @@
 namespace WpfMvvmIssue;
 
 [ObservableObject]
-public partial class MainViewModel
+public partial record RecordTestViewModel
 {
     [ObservableProperty]
-    private string? _name;
+    private string? _message;
 }

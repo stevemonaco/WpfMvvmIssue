@@ -7,14 +7,23 @@ namespace WpfMvvmIssue;
 public partial class MainWindow : Window
 {
     [ObservableProperty]
-    private string? _name;
+    private string? _message = "TestingWindowMessage";
+
+    private RecordTestViewModel _recordVM = new();
+    private ClassTestViewModel _classVM = new() { Message = "TestingClassMessage" };
 
     public MainWindow()
     {
-        _name = "Testing456";
-
         InitializeComponent();
-        //DataContext = new MainViewModel() { Name = "Testing456" };
-        DataContext = this;
+        //DataContext = _recordVM;
+        DataContext = _classVM;
+        //DataContext = this;
+    }
+
+    public void OnLoad(object sender, RoutedEventArgs e)
+    {
+        //_recordVM.Message += ": INPC Changed!";
+        _classVM.Message += ": INPC Changed!";
+        //Message += ": INPC Changed!";
     }
 }
